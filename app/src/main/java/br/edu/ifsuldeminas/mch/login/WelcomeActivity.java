@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -58,6 +59,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         if (requestCode == FOTO_ACTIVITY && resultCode == RESULT_OK && data != null){
             Bundle extras = data.getExtras();
+
+            Bitmap foto = (Bitmap) extras.get("data");
+
+            ImageView imageView = findViewById(R.id.imageViewId);
+            imageView.setImageBitmap(foto);
         }
     }
 }

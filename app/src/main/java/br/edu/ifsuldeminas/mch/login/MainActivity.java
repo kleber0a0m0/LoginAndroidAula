@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String USUARIO = "Emerson";
+    private static final String USUARIO = "Kleber";
     private static final String SENHA = "1";
 
     @Override
@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
                 String senha = editTextPW.getText().toString().trim();
 
                 if (nomeUsuario.equals("") || senha.equals("")) {
+                    //APAGAR INICIO
+                    Intent intent = new Intent(getApplicationContext(),
+                            WelcomeActivity.class);
+
+                    intent.putExtra("USER", "Kleber");
+
+                    startActivity(intent);
+                    //APAGAR FIM
+
                     Toast.makeText(view.getContext(),
                             R.string.user_senha_vazio,
                             Toast.LENGTH_SHORT).show();
