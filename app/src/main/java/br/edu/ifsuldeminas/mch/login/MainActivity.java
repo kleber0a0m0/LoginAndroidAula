@@ -1,5 +1,8 @@
 package br.edu.ifsuldeminas.mch.login;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +16,18 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String USUARIO = "Kleber";
     private static final String SENHA = "1";
+
+    private ActivityResultLauncher<String> startActivitWelcome = registerForActivityResult(
+            new SimpleContract(), new ActivityResultCallback<String>() {
+                @Override
+                public void onActivityResult(String result) {
+                    if(result.equals("")){
+                        Toast t = Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT);
+                        t.show();
+                    }
+
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
