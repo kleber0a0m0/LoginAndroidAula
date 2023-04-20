@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="texto_usario">Usuário</string>
+    <string name="texto_senha">Senha</string>
+    <string name="button_login">Logar</string>
+    <string name="button_cadastrar">Cadastrar</string>
+    <string name="button_forgot_pw">Esqueci a senha</string>
+    <string name="login_clicado">Botão Login clicado</string>
+    <string name="cadastrar_clicado">Botão cadastrar clicado</string>
+    <string name="esqueci_senha_clicado">Botão esquecia senha clicado</string>
+    <string name="user_senha_vazio">Usuário e senha não podem ser vazios</string>
+    <string name="user_ou_senha_invalido">Usuário ou senha inválidos</string>
+    <string name="titulo_bem_vindo">Bem vindo</string>
+    <string name="mensagem_bem_vindo">Seja bem vindo \'%s\'!</string>
+    <string name="botao_tira_foto">Tirar foto</string>
+</resources>
