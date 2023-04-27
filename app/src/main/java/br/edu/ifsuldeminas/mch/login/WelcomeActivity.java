@@ -3,6 +3,7 @@ package br.edu.ifsuldeminas.mch.login;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private static final String TAG = "act.bem_vindo";
     private static final int FOTO_ACTIVITY = 1;
+    private Intent intentResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,12 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivityForResult(tiraFotoIntent, FOTO_ACTIVITY);
             }
         });
+        intentResult = new Intent();
+        intentResult.putExtra("resultado", "Usuário não tirou a foto");
+        setResult(Activity.RESULT_OK,intentResult);
+
     }
+
 
     @Override
     protected void onStart() {
@@ -64,6 +71,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
             ImageView imageView = findViewById(R.id.imageViewId);
             imageView.setImageBitmap(foto);
+            intentResult.putExtra("resultado","Usuário ???????");
         }
     }
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return true;
+    }
+
 }

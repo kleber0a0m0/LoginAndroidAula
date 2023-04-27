@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             new SimpleContract(), new ActivityResultCallback<String>() {
                 @Override
                 public void onActivityResult(String result) {
-                    if(result.equals("")){
+                    if(!result.equals("")){
                         Toast t = Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT);
                         t.show();
                     }
@@ -45,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 String senha = editTextPW.getText().toString().trim();
 
                 if (nomeUsuario.equals("") || senha.equals("")) {
-                    //APAGAR INICIO
-                    Intent intent = new Intent(getApplicationContext(),
-                            WelcomeActivity.class);
-
-                    intent.putExtra("USER", "Kleber");
-
-                    startActivity(intent);
-                    //APAGAR FIM
 
                     Toast.makeText(view.getContext(),
                             R.string.user_senha_vazio,
@@ -62,12 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (USUARIO.equals(nomeUsuario) && SENHA.equals(senha)) {
-                    Intent intent = new Intent(getApplicationContext(),
-                            WelcomeActivity.class);
+//                    Intent intent = new Intent(getApplicationContext(),
+//                            WelcomeActivity.class);
+//
+//                    intent.putExtra("USER", nomeUsuario);
+//
+//                    startActivity(intent);
 
-                    intent.putExtra("USER", nomeUsuario);
+                    startActivitWelcome.launch(nomeUsuario);
 
-                    startActivity(intent);
                 } else {
                     Toast.makeText(view.getContext(),
                             R.string.user_ou_senha_invalido,
@@ -78,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonForgotPW = findViewById(R.id.buttonForgotPW);
         buttonForgotPW.setOnClickListener(new FogotPW());
+    }
+
+    private void startActivitWelcome(String nomeUsuario) {
     }
 
     public void signIn(View v){
